@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration[5.0]
     create_table :games do |t|
       t.string :initials
       t.datetime :start_time
-      t.time :win_time
+      t.float :win_time
 
       t.timestamps
     end

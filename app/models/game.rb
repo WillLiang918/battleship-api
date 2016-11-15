@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   has_one :board
-  has_many :cells, through: :board
+  has_many :cells, -> { order(:id) }, through: :board
 
   after_create :create_board
 
