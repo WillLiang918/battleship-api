@@ -4,7 +4,7 @@ require_relative 'config/environment'
 
 use Rack::Cors do
   allow do
-    origins 'localhost:3000', '127.0.0.1:3000',
+    origins '*',
             /\Ahttp:\/\/192\.168\.0\.\d{1,3}(:\d+)?\z/
     # regular expressions can be used here
 
