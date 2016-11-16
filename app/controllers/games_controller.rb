@@ -7,6 +7,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def destroy
+    # Game data could be used in the future
+    # @game = Game.find(params[:id]).destroy
+  end
+
   def strike
     @game = Game.find(params[:id])
     unless @game.game_over
