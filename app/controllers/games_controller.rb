@@ -39,6 +39,6 @@ class GamesController < ApplicationController
   end
 
   def leaderboard
-    @games = Game.where('win_time is NOT Null').order(:win_time).first(10)
+    @games = Game.where('win_time is NOT Null AND initials is NOT Null').order(:win_time).first(10)
   end
 end
