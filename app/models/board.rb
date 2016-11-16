@@ -32,11 +32,11 @@ class Board < ApplicationRecord
   end
 
   def place_computer_ships
-    game.update_attribute(:start_time, Time.now)
     available_cells = cells.where(available: true).sample(SHIP_COUNT)
     available_cells.each do |cell|
       place_ship(cell, {computer_ship: true})
     end
+    game.update_attribute(:start_time, Time.now)
   end
 
   def place_ship(cell, computer_ship=false)
@@ -47,11 +47,11 @@ class Board < ApplicationRecord
   def check_guess(x, y)
     cell = cells.where(position_x: x, position_y: y).first
     if cell.checked?
-      return 'invalid guess, already checked'
+      'invalid guess, already checked'
     elsif cell.has_player_ship
-      return 'This is your ship!'
+      'This is your ship!'
     else
-      return cell.check
+      cell.check
     end
   end
 
@@ -62,7 +62,7 @@ class Board < ApplicationRecord
       computer_guess = cells.where(checked: false).sample(1).first
     end
 
-    return computer_guess.check_for_computer
+    computer_guess.check_for_computer
   end
 
   def user_ship_count
