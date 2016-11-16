@@ -17,6 +17,6 @@ class Game < ApplicationRecord
   end
 
   def game_over
-    board.all_player_ship_sunk || board.all_computer_ship_sunk
+    board.all_player_ship_sunk? || board.all_computer_ship_sunk?
   end
 end

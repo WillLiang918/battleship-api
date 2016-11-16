@@ -13,24 +13,24 @@ class Cell < ApplicationRecord
   def check
     self.update_attribute(:checked, true)
     if self.available?
-      return 'Miss...'
+      'Miss...'
     elsif ship && ship.computer_ship
       ship.update_attribute(:sunk, true)
-      return 'Hit!'
+      'Hit!'
     else
-      return 'Invalid guess'
+      'Invalid guess'
     end
   end
 
   def check_for_computer
     self.update_attribute(:checked, true)
     if self.available?
-      return 'Miss!'
+      'Miss!'
     elsif ship && ship.computer_ship == false
       ship.update_attribute(:sunk, true)
-      return 'Hit...'
+      'Hit...'
     else
-      return 'Invalid Guess, WTF?'
+      'Invalid Guess, WTF?'
     end
   end
 end

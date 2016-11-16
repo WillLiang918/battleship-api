@@ -69,11 +69,11 @@ class Board < ApplicationRecord
     ships.where(computer_ship: false).count
   end
 
-  def all_player_ship_sunk
+  def all_player_ship_sunk?
     ships.where(computer_ship: false).all?(&:sunk)
   end
 
-  def all_computer_ship_sunk
+  def all_computer_ship_sunk?
     ships.where(computer_ship: true).all?(&:sunk)
   end
 end
